@@ -1,0 +1,29 @@
+section{
+  width: 800px;
+  margin-left: calc(50% - 400px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  header{
+    padding: 15px;
+    h2{
+      color: #6A1B9A;
+      font-size: 24px;
+      text-align: center;
+    }
+  }
+
+  .login{
+    div{
+      width: 300px;
+      input{
+        width: 100%;
+        padding: 5px;
+        border-radius: 4px;
+        background-color: #bdbdbd;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
