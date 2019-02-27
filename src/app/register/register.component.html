@@ -1,3 +1,39 @@
-<p>
-  register works!
-</p>
+<section>
+  <header>
+     <h2>Jahecha Paraguay</h2>
+  </header>
+  <div>
+    <img src="" alt="" />
+  </div>
+  <div class="login">
+    <div>
+      <header>
+        Ingresa con tu email y contraseña
+      </header>
+      <div>
+        <label for="name">Nombre</label>
+        <input type="text" id="nombre" [(ngModel)]="registro.nombre"/>
+      </div>
+      <div>
+        <label for="name">Apellido</label>
+        <input type="text" id="apellido" [(ngModel)]="registro.apellido"//>
+      </div>
+      <div>
+      	<label for="name">Email</label>
+      	<input type="email" id="email"  [(ngModel)]="registro.email"/>
+      </div>
+      <div>
+        <label for="name">Telefono</label>
+      	<input type="telefono" id="telefono" [(ngModel)]="registro.telefono"/>
+      </div>
+      <div>
+        <label for="name">Modelo de Automovil</label>
+      	<input type="auto modelo" id="automodelo" [(ngModel)]="registro.automodelo"/>
+      </div>
+      <div>
+        <label for="name">Nro. de Chapa</label>
+      	<input type="numerochapa" id="numerochapa" [(ngModel)]="registro.numerochapa"/>
+      </div>
+    </div>
+  </div>
+</section>
