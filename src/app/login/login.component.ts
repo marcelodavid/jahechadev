@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Login {
-  email: String;
-  password: String;
-}
-
+import { Login } from '../interfaces/login.interface';
+import { AuthenticationService } from '../services/authentication.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,9 +12,12 @@ export class LoginComponent implements OnInit {
     password: ""
   }
   
-  constructor() { }
+  constructor(private auth:AuthenticationService) { }
 
   ngOnInit() {
   }
-
+  
+  logIn(){
+    this.auth.loginWithEmailandPass(this.login);
+  }
 }

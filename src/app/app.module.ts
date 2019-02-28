@@ -11,6 +11,9 @@ import { FormsModule} from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+// Services
+import { AuthenticationService } from './services/authentication.service';
+
 export const firebaseConfig = {
 	apiKey: "AIzaSyCvK3DdmoTzotaBi2gFwev46S6UByyEYSI",
 	authDomain: "jahecha-b637b.firebaseapp.com",
@@ -33,7 +36,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule 
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
