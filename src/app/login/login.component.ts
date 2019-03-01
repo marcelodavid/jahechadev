@@ -18,6 +18,32 @@ export class LoginComponent implements OnInit {
   }
   
   logIn(){
-    this.auth.loginWithEmailandPass(this.login);
+    this.auth.loginWithEmailandPass(this.login)
+      .then(result => {
+        console.log("exitoso: ", result);   
+      })
+      .catch(err => {
+        console.log("error: ", err);
+      })
+  }
+
+  loginWithFacebook(){
+    this.auth.loginWithFacebook()
+      .then(result => {
+        console.log("login with Facebook: ", result); 
+      })
+      .catch(err => {
+        console.log("somethings wrong...: ", err);
+      })
+  }
+
+  loginWithGoogle(){
+    this.auth.loginWithGoogle()
+      .then(result => {
+        console.log("login with google: ", result);
+      })
+      .catch(err => {
+        console.log("somethings wrong: ", err);
+      })
   }
 }
