@@ -2,38 +2,39 @@
   <header>
      <h2>Jahecha Paraguay</h2>
   </header>
-  <div>
-    <img src="" alt="" />
-  </div>
-  <div class="login">
+  <div class="register">
     <div>
       <header>
-        Ingresa con tu email y contraseña
+        Introduzca sus datos personales y datos de su vehiculo.
       </header>
       <div>
-        <label for="name">Nombre</label>
-        <input type="text" id="nombre" [(ngModel)]="registro.nombre"/>
+        <input type="text"  pInputText placeholder="Nombre" [(ngModel)]="register.nombre"/>
       </div>
       <div>
-        <label for="name">Apellido</label>
-        <input type="text" id="apellido" [(ngModel)]="registro.apellido"//>
+ 
+        <input type="text"  pInputText placeholder="Apellido" [(ngModel)]="register.apellido"/>
       </div>
       <div>
-      	<label for="name">Email</label>
-      	<input type="email" id="email"  [(ngModel)]="registro.email"/>
+ 
+        <input type="text"  pInputText placeholder="e-mail" [(ngModel)]="register.email"/>
       </div>
       <div>
-        <label for="name">Telefono</label>
-      	<input type="telefono" id="telefono" [(ngModel)]="registro.telefono"/>
+
+        <input type="password" pInputText placeholder="Password"  [(ngModel)]="register.password"/>
       </div>
       <div>
-        <label for="name">Modelo de Automovil</label>
-      	<input type="auto modelo" id="automodelo" [(ngModel)]="registro.automodelo"/>
+
+        <input type="text"  pInputText placeholder="Telefono" [(ngModel)]="register.telefono"/>
       </div>
       <div>
-        <label for="name">Nro. de Chapa</label>
-      	<input type="numerochapa" id="numerochapa" [(ngModel)]="registro.numerochapa"/>
+
+        <input type="text" pInputText placeholder="Modelo de Auto" [(ngModel)]="register.modelodeauto"/>
       </div>
+      <div>
+ 
+        <input type="text" pInputText placeholder="Chapa Identificatoria" [(ngModel)]="register.chapaidentificatoria"/>
+      </div>
+      <button type="button" (click)=newregister()>Registrarse</button>
     </div>
   </div>
 </section>

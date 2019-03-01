@@ -24,6 +24,8 @@
     "core-js": "^2.5.4",
     "firebase": "^5.8.4",
     "package.json": "^2.0.1",
+    "primeicons": "^1.0.0",
+    "primeng": "^7.0.5",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
@@ -44,6 +46,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.11.0",
     "postcss-cli": "^6.1.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
