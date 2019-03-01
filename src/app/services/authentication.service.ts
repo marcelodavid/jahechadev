@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Login } from '../interfaces/login.interface';
+import { Register } from '../interfaces/register.interface';
 import * as firebase from 'firebase/app';
 
 @Injectable({
@@ -14,6 +15,13 @@ export class AuthenticationService {
     return this.fbAuth.auth.signInWithEmailAndPassword(
       login.email, 
       login.password
+    )
+  }
+
+  public registerWithEmailandPass(register: Register){
+    return this.fbAuth.auth.createUserWithEmailAndPassword (
+      register.email, 
+      register.password
     )
   }
 
