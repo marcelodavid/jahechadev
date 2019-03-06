@@ -3,11 +3,13 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Register } from '../interfaces/register.interface';
 import { InputTextModule } from 'primeng/inputtext';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
 
   register : Register ={

@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Services
 import { AuthenticationService } from './services/authentication.service';
+import { MapsComponent } from './maps/maps.component';
 
 export const firebaseConfig = {
 	apiKey: "AIzaSyCvK3DdmoTzotaBi2gFwev46S6UByyEYSI",
@@ -27,7 +28,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,
