@@ -8,7 +8,7 @@ declare let L;
   styleUrls: ['./maps.component.scss']
 })
 export class MapsComponent implements OnInit {
-  points:any = [
+  points:any[] = [
     [-25.275235, -57.568770],
     [-25.270454, -57.572210],
     [-25.272695, -57.570568],
@@ -31,29 +31,45 @@ export class MapsComponent implements OnInit {
     [-25.273376, -57.494148],
     [-25.274472, -57.491552]
   ]
+	/* Interval for task */
+  source = interval(5000);
+  inicio: number = 0;
+	map: any = null;
+	myIcon: any = null;
+  marker: any = null;
   constructor() { }
   
-  /* Interval for task */
-  source = interval(5000);
-
-  ngOnInit() {
-    this.source
+	ngOnInit() {
+  	this.myIcon = L.icon({
+			iconUrl: 'assets/images/point.png',
+			iconSize: [16, 16]
+		}); 
+		this.map = L.map('maps', {fullscreenControl: true}).setView([-25.271878, -57.589877], 7);
+ 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(this.map);
+  
+		this.marker = L.marker([-25.275235, -57.568770], {icon: this.myIcon});	
+		this.marker.addTo(this.map);
+ 		this.source
       .subscribe( result => {
-      
+				if(this.inicio < this.points.length){
+					const point = this.points[this.inicio];
+					this.addMarker(point);     
+        	this.inicio++;
+				}
       })
     
-    const map = L.map('maps', {fullscreenControl: true}).setView([-25.271878, -57.589877], 7);
-
-  	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-  	L.Routing.control({
+  	
+  	/*L.Routing.control({
   		waypoints:[
   			L.latLng(-25.275235,-57.567640),
   			L.latLng(-25.256994,-57.583096)
   		]
-  	}).addTo(map);
+  	}).addTo(this.map);*/
   }
 
+	addMarker(point:any){
+		this.marker.setLatLng(point);
+	}
 }
