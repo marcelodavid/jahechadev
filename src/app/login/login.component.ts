@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from '../interfaces/login.interface';
 import { AuthenticationService } from '../services/authentication.service';
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -15,7 +15,10 @@ export class LoginComponent implements OnInit {
     password: ""
   }
   
-  constructor(private auth:AuthenticationService) { }
+  constructor(
+		private auth:AuthenticationService,
+		private router:Router	
+	) { }
 
   ngOnInit() {
   }
@@ -23,7 +26,7 @@ export class LoginComponent implements OnInit {
   logIn(){
     this.auth.loginWithEmailandPass(this.login)
       .then(result => {
-        console.log("exitoso: ", result);   
+      	this.router.navigate(['/maps']); 
       })
       .catch(err => {
         console.log("error: ", err);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { interval } from 'rxjs';
 declare let L;
 
 @Component({
@@ -8,10 +8,40 @@ declare let L;
   styleUrls: ['./maps.component.scss']
 })
 export class MapsComponent implements OnInit {
-
+  points:any = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ]
   constructor() { }
+  
+  /* Interval for task */
+  source = interval(5000);
 
   ngOnInit() {
+    this.source
+      .subscribe( result => {
+      
+      })
+    
     const map = L.map('maps', {fullscreenControl: true}).setView([-25.271878, -57.589877], 7);
 
   	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
