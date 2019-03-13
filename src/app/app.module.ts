@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Services
 import { AuthenticationService } from './services/authentication.service';
+import { MapsTrackerService } from './services/maps-tracker.service';
 import { MapsComponent } from './maps/maps.component';
 
 export const firebaseConfig = {
@@ -38,7 +39,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule 
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService,MapsTrackerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
