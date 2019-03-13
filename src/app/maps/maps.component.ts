@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
 import { MapsTrackerService} from '../services/maps-tracker.service';
+import { PositionService } from '../services/position.service';
 //declare let L;
 
 @Component({
@@ -41,13 +42,20 @@ export class MapsComponent implements OnInit {
 	myIcon: any = null;
   marker: any = null;*/
 
-  constructor( private tracker:MapsTrackerService) { }
+  constructor( 
+    private tracker:MapsTrackerService,
+    private pService:PositionService  
+  ) { }
   
 	ngOnInit() {
+    this.pService.getPosition(459710040745235)
+			.subscribe(result => {
+				console.log("Posicion: ", result);
+			});
     this.trackening();
   }
 
-  trackening(){
+  trackening(){ 
     this.tracker.mapsTracker(this.points);
   }
 

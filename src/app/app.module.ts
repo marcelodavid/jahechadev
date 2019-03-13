@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Authentications modules
 import { AngularFireModule } from '@angular/fire';
@@ -15,6 +16,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
 import { MapsTrackerService } from './services/maps-tracker.service';
 import { MapsComponent } from './maps/maps.component';
+import { PositionService } from './services/position.service';
 
 export const firebaseConfig = {
 	apiKey: "AIzaSyCvK3DdmoTzotaBi2gFwev46S6UByyEYSI",
@@ -37,9 +39,14 @@ export const firebaseConfig = {
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule 
+    AngularFireAuthModule,
+		HttpClientModule
   ],
-  providers: [AuthenticationService,MapsTrackerService],
+  providers: [
+    AuthenticationService,
+    MapsTrackerService,
+    PositionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
