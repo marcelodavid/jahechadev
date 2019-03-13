@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: "https://app.jahecha.net/"
+  API_ENDPOINT: "https://localhost:3000"
 };
 
 /*
