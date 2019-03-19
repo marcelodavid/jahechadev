@@ -18,6 +18,10 @@ import { MapsTrackerService } from './services/maps-tracker.service';
 import { MapsComponent } from './maps/maps.component';
 import { PositionService } from './services/position.service';
 
+// Socket io
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment } from '../environments/environment';
+
 export const firebaseConfig = {
 	apiKey: "AIzaSyCvK3DdmoTzotaBi2gFwev46S6UByyEYSI",
 	authDomain: "jahecha-b637b.firebaseapp.com",
@@ -40,7 +44,8 @@ export const firebaseConfig = {
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-		HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(environment.socketConfig)
   ],
   providers: [
     AuthenticationService,

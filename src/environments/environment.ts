@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: "https://localhost:3000"
+  API_ENDPOINT: "https://localhost:3000",
+  socketConfig: {
+    url: 'urldelservidor',
+    options: {}
+  }
 };
 
 /*

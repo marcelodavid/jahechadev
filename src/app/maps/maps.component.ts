@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
 import { MapsTrackerService} from '../services/maps-tracker.service';
 import { PositionService } from '../services/position.service';
+import { SocketioService } from '../services/socketio.service';
 //declare let L;
 
 @Component({
@@ -11,7 +12,7 @@ import { PositionService } from '../services/position.service';
 })
 export class MapsComponent implements OnInit {
 
-  points:any[] = [
+/*  points:any[] = [
     [-25.275235, -57.568770],
     [-25.270454, -57.572210],
     [-25.272695, -57.570568],
@@ -35,7 +36,7 @@ export class MapsComponent implements OnInit {
     [-25.274472, -57.491552]
   ]
 
-	/* Interval for task 
+  Interval for task 
   source = interval(5000);
   inicio: number = 0;
 	map: any = null;
@@ -44,20 +45,23 @@ export class MapsComponent implements OnInit {
 
   constructor( 
     private tracker:MapsTrackerService,
-    private pService:PositionService  
+    private pService:PositionService,
+    private socket:SocketioService
   ) { }
   
 	ngOnInit() {
-    this.pService.getPosition(459710040745235)
-			.subscribe(result => {
-				console.log("Posicion: ", result);
+    this.tracker.createMap();
+    this.pService.getPosition(459710040745235 /* imei */)
+			.subscribe(firstPoint => {
+				this.tracker.creatMarker(firstPoint)
 			});
-    this.trackening();
+
+    this.socket.getPoint()
+      .subscribe(point => {
+        this.tracker.addMarker(point)
+      })
   }
 
-  trackening(){ 
-    this.tracker.mapsTracker(this.points);
-  }
 
   /*mapsTracker(){
 

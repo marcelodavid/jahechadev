@@ -10,7 +10,7 @@ declare let L;
 
 export class MapsTrackerService {
 
-  source = interval(5000);
+  // source = interval(5000);
   inicio: number = 0;
   map: any = null;
   myIcon: any = null;
@@ -18,7 +18,7 @@ export class MapsTrackerService {
 
   constructor() { }
 
-   public mapsTracker(points: any[]){
+   public createMap(){
 
     this.myIcon = L.icon({
       iconUrl: 'assets/images/point.png',
@@ -29,8 +29,8 @@ export class MapsTrackerService {
             attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.map);
   
-    this.creatMarker([-25.271878,-57.589877]);
-    this.source
+    // this.creatMarker([-25.271878,-57.589877]);
+    /* this.source
       .subscribe( result => {
         if(this.inicio < points.length){
           const point = points[this.inicio];
@@ -39,7 +39,7 @@ export class MapsTrackerService {
         }
       });
       
-    /*L.Routing.control({
+    L.Routing.control({
       waypoints:[
         L.latLng(-25.275235,-57.567640),
         L.latLng(-25.256994,-57.583096)
@@ -47,7 +47,7 @@ export class MapsTrackerService {
     }).addTo(this.map);*/
    }
 	
-    addMarker(point:any){
+  addMarker(point:any){
 		this.marker.setLatLng(point);
 		this.marker.addTo(this.map);
 	}
